@@ -1,0 +1,20 @@
+<html>
+<head>
+        <title>Album Form</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<form action="album_form.php" method="POST">
+Album Id: <input type="number" name="albumid" value="Album Id">
+
+User Id: <input type="number" name="userid" value="User Id">
+
+Title: <input type="text" name="title" value="Title">
+
+Description: <textarea name="description" rows="5" cols="40"><?php echo $description;?></textarea>
+
+Submit: <input type="submit" name="submit" value="Submit">
+
+</form>
+</body>
+</html>
