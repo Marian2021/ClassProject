@@ -4,12 +4,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<form action="comment_form.php" method="POST">
-Comment Id: <input type="number" name="commentid" value="Comment Id">
+<form action="commentpost.php" method="POST">
+User Id: <input type="number" name="userId">
 
-Picture Id: <input type="number" name="pictureid" value="Picture Id">
+Comment Id: <input type="number" name="commentId">
 
-Comment Content: <textarea name="commentcontent" rows="5" cols="40"><?php echo $commentcontent;?></textarea>
+Section Id: <input type="number" name="sectionId">
+
+Comment Content: <textarea name="content" rows="5" cols="40"></textarea>
 
 Submit: <input type="submit" name="submit" value="Submit">
 

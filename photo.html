@@ -1,9 +1,9 @@
-// I used the input tag of type Number for the various IDs, a TextArea for the Description which could be lengthy.
+<!-- I used the input tag of type Number for the various IDs, a TextArea for the Description which could be lengthy.
 
 A Text type input field for Title and a Url for Picture Directory.
 
 A form action to redirect form on the click of the Submit button provided at the bottom to a Php page called photo_form.
-//
+-->
 
 
 <html>
@@ -12,20 +12,23 @@ A form action to redirect form on the click of the Submit button provided at the
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<form action="photo_form.php" method="POST">
-Photo Id: <input type="number" name="photoid" value="<?php echo $photoid;?>">
+<form action="picturepost.php" method="POST">
+Picture Id: <input type="number" name="pictureId">
 
-User Id: <input type="number" name="userid" value="<?php echo $userid;?>">
+User Id: <input type="number" name="userId">
 
-Album Id: <input type="number" name="albumid" value="<?php echo $albumid;?>">
+Album Id: <input type="number" name="albumId">
 
-Description: <textarea name="description" rows="5" cols="40"><?php echo $description;?></textarea>
+Description: <input type="text" name="pictureDescription">
+<!--<textarea name="pictureDescription" rows="5" cols="40"></textarea>-->
 
-Title: <input type="text" name="title" value="<?php echo $title;?>">
+Title: <input type="text" name="pictureTitle">
 
-Picture Directory: <input type="url" name="picturedirectory" value="<?php echo $picturedirectory;?>">
+Picture Directory: <input type="text" name="pictureDirectory">
 
-Submit: <input type="submit" name="submit" value="</php echo $submit;?>">
+<input type="file" name="image" required/>
+
+Submit: <input type="submit" name="submit" value="Submit">
 
 </form>
 </body>
