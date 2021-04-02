@@ -12,7 +12,7 @@ A form action to redirect form on the click of the Submit button provided at the
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<form action="picturepost.php" method="POST">
+<form action="picturepost.php" method="POST" enctype="multipart/form-data">
 Picture Id: <input type="number" name="pictureId">
 
 User Id: <input type="number" name="userId">
@@ -26,7 +26,7 @@ Title: <input type="text" name="pictureTitle">
 
 Picture Directory: <!--<input type="text" name="pictureDirectory">-->
 
-<input type="file" name="image" required/>
+<input type="file" name="image" id="image" required/>
 
 Submit: <input type="submit" name="submit" value="Submit">
 
