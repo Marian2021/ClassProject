@@ -5,7 +5,7 @@ $db = mysqli_connect('localhost', 'root', '', 'photosite');
     <h2>Album Table</h2>
 
 <?php
-$result = mysqli_query($db,"SELECT * FROM albums");
+$result = mysqli_query($db,"SELECT * FROM albums INNER JOIN user ON albums.userId = user.userId");
 echo "<table style='width:50%' class='striped'>
 <tr class='header'>
                 <td>albumId</td>
@@ -15,7 +15,7 @@ echo "<table style='width:50%' class='striped'>
                 
             </tr>";
 while($row = mysqli_fetch_assoc($result)){
-	echo '<tr><td>'.$row['albumId'].'</td><td><p>'.$row['userId'].'</p></td><td><p>'.$row['title'].'</p></td><td><p>'.$row['description'].'</p></td></tr>';
+	echo '<tr><td>'.$row['albumId'].'</td><td><p>'.$row['username'].'</p></td><td><p>'.$row['title'].'</p></td><td><p>'.$row['description'].'</p></td></tr>';
 
        }
 echo "</table>";

@@ -5,7 +5,7 @@ $db = mysqli_connect('localhost', 'root', '', 'photosite');
     <h2>Comment Table</h2>
 
 <?php
-$result = mysqli_query($db,"SELECT * FROM comment JOIN commentSection WHERE commentSection.sectionId = comment.sectionId");
+$result = mysqli_query($db,"SELECT * FROM comment INNER JOIN commentSection ON commentSection.sectionId = comment.sectionId INNER JOIN picture ON commentSection.pictureId = picture.pictureId INNER JOIN user ON comment.userId = user.userId");
 echo "<table style='width:50%' class='striped'>
 <tr class='header'>
 				<td>pictureId</td>
@@ -15,7 +15,7 @@ echo "<table style='width:50%' class='striped'>
                 <td>content</td>
             </tr>";
 while($row = mysqli_fetch_assoc($result)){
-	echo '<tr><td><p>'.$row['pictureId'].'</p></td><td><p>'.$row['commentId'].'</p></td><td><p>'.$row['userId'].'</p></td><td><p>'.$row['sectionId'].'</p></td><td><p>'.$row['content'].'</p></td></tr>';
+	echo '<tr><td><p>'.$row['pictureTitle'].'</p></td><td><p>'.$row['commentId'].'</p></td><td><p>'.$row['username'].'</p></td><td><p>'.$row['sectionId'].'</p></td><td><p>'.$row['content'].'</p></td></tr>';
 
        }
 echo "</table>";
