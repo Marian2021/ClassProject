@@ -1,23 +1,24 @@
+<!DOCTYPE html>
+<?php include('connection.php') ?>
 <html>
 <head>
-  <title>Registration </title>
-  <link rel="stylesheet" type="text/css" href="login.css">
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Complete Bootstrap 4 Website Layout</title>
+	<title>Group 500 photo website</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="stlyle.css" rel="stylesheet">
-	<link href="login.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+	
 </head>
 <body>
 	<!-- Navigation -->
 <nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/logo.png"></a> 
+    <a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarResponsive">
 
@@ -33,15 +34,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="register.php">Register</a>
             </li>
+			<li class="nav-item">
+                <a class="nav-link" href="pic.php">upload Picture</a>
+            </li>
         </ul>
     </div>
     </div>
 </nav>
+
   <div class="header">
   	<h2>Login</h2>
   </div>
 	 
   <form method="post" action="login.php">
+  	<?php include('errors.php'); ?>
   	<div class="input-group">
   		<label>Username</label>
   		<input type="text" name="username" >
@@ -57,6 +63,7 @@
   		Not yet a member? <a href="register.php">Sign up</a>
   	</p>
   </form>
+
   
 </body>
 

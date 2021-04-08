@@ -1,7 +1,8 @@
+<?php include 'connection.php';?>
 
-<?php include('connection.php') ?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,10 +17,11 @@
 	
 </head>
 <body>
-    <!-- Navigation -->
+
+<!-- Navigation -->
 <nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
-	<a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
+        <a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarResponsive">
 
@@ -35,42 +37,28 @@
             <li class="nav-item">
                 <a class="nav-link" href="register.php">Register</a>
             </li>
-			<li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="pic.php">upload Picture</a>
             </li>
         </ul>
     </div>
     </div>
 </nav>
-  <div class="header">
-  	<h2>Register</h2>
-  </div>
-<!--When a user is registered in the database, they are immediately logged in and redirected to the index.php page-->
-  <form method="post" action="register.php">
-  <?php include('errors.php'); ?>
-  	<div class="input-group">
-	  <label>Username</label>
-	  <input type="text" name="username" value="<?php echo $username; ?>">
-  	  
-  	</div>
-  	<div class="input-group">
-  	  <label>Email</label>
-  	  <input type="email" name="email" value="<?php echo $email; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>Password</label>
-  	  <input type="password" name="password_1">
-  	</div>
-  	<div class="input-group">
-  	  <label>Confirm password</label>
-  	  <input type="password" name="password_2">
-  	</div>
-  	<div class="input-group">
-	  <button type="submit" class="btn" name="reg_user">Register</button>
-  	</div>
-  	<p>
-  		Already a member? <a href="login.php">Sign in</a>
-  	</p>
-  </form>
-</body>
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="pic.css">
+    <title>Files Upload and Download</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form action="index.php" method="post" enctype="multipart/form-data" >
+          <h3>Upload File</h3>
+          <input type="file" name="myfile"> <br>
+          <button type="submit" name="save">upload</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

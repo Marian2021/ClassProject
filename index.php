@@ -34,6 +34,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="register.php">Register</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pic.php">upload Picture</a>
+            </li>
         </ul>
     </div>
     </div>
