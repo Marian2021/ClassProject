@@ -39,12 +39,16 @@
   <div class="header">
   	<h2>Create Album</h2>
   </div>
-	
-  <form method="post" action="albumview.php">
-  	<div class="form-group">
-      <label for="filename">Upload images for album</label>
-      <input type="file" class="form-control-file" id="filename" multiple>
-    </div>
-  </form>
+	<form action="albumpost.php" method="post">
+		<div class="form-group">
+		  
+		  User Id: <input type="number" name="userid" value="User Id"><br>
+		  
+		  Title: <input type="text" name="title" value=""><br>
+		  
+		  Description: <textarea name="description" rows="5" cols="20"></textarea><br>
+		  
+		  <input type="submit" name="submit" value="Submit"><br>
+		</form>
 </body>
 </html>

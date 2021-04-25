@@ -38,7 +38,7 @@
                 <a class="nav-link" href="register.php">Register</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pic.php">upload Picture</a>
+                <a class="nav-link" href="pic.php">Upload Picture</a>
             </li>
         </ul>
     </div>
@@ -53,10 +53,26 @@
   <body>
     <div class="container">
       <div class="row">
-        <form action="index.php" method="post" enctype="multipart/form-data" >
-          <h3>Upload File</h3>
-          <input type="file" name="myfile"> <br>
-          <button type="submit" name="save">upload</button>
+        <form action="picturepost.php" method="post" enctype="multipart/form-data" >
+          <h3>Upload Picture</h3>
+		  Title: <input type="text" name="pictureTitle"><br> 
+		  
+		  Description: <textarea name="pictureDescription" rows="5" cols="20"></textarea><br> 
+		  
+		  User Id: <input type="number" name="userId"><br> 
+		  
+		  Album: <select id="albumId" name="albumId">
+		  <?php 
+		  $result = mysqli_query($db,"SELECT * from albums");
+		  while($row = mysqli_fetch_assoc($result)){
+		echo '<option value = "'.$row['albumId'].'"> '.$row['title'].' </option>';
+
+       }
+		  ?>
+		  
+		  Picture: <input type="file" name="image" id="image" required/><br> 
+		  
+		  Submit: <input type="submit" name="submit" value="Submit">
         </form>
       </div>
     </div>

@@ -3,14 +3,11 @@ include_once 'db.php';
 if(isset($_POST['submit']))
 {    
 
-	$pictureId = mysqli_real_escape_string($conn, $_POST['pictureId']);
-	$userId = mysqli_real_escape_string($conn, $_POST['userId']);
-	$albumId = mysqli_real_escape_string($conn, $_POST['albumId']);
-	$pictureDescription = mysqli_real_escape_string($conn, $_POST['pictureDescription']);
-	$pictureTitle = mysqli_real_escape_string($conn, $_POST['pictureTitle']);
-	$pictureDirectory = mysqli_real_escape_string($conn, $_POST['pictureDirectory']);
+	$userid = mysqli_real_escape_string($conn, $_POST['userid']);
+	$title = mysqli_real_escape_string($conn, $_POST['title']);
+	$description = mysqli_real_escape_string($conn, $_POST['description']);
 
-    $sql = "INSERT INTO picture (pictureId,userId,albumId,pictureDescription,pictureTitle,pictureDirectory) VALUES ('$pictureId','$userId','$albumId','$pictureDescription','$pictureTitle','$pictureDirectory')";
+    $sql = "INSERT INTO albums (userId,title,description) VALUES ('$userid','$title','$description')";
     if (mysqli_query($conn, $sql)) {
 		echo "New record has been added successfully !";
      } else {

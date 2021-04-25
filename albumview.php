@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include('connection.php') ?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -39,7 +40,27 @@
   <div class="header">
   	<h2>Album</h2>
   </div>
-	
+<div class="container page-top">
+
+<div class="row">
+
+<?php
+$album = $_GET['album'];
+$result = mysqli_query($db,"SELECT * FROM albums INNER JOIN picture ON albums.albumId = picture.albumId where albums.albumId = ".$album."");
+
+while($row = mysqli_fetch_assoc($result)){
+	echo ' <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <a href="photoview.php?picture='.$row['pictureId'].'" class="fancybox" rel="ligthbox">
+            <img  src="images/'.$row['pictureDirectory'].'" class="zoom img-fluid "  alt="'.$row['pictureDescription'].'" height="200">
+           <p>'.$row['pictureTitle'].'</p>
+        </a>
+    </div>';
+
+       }
+mysqli_close($db);
+?>
+</div>
+</div>
   
 </body>
 </html>

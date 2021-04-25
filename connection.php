@@ -46,8 +46,8 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO user (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+  	$query = "INSERT INTO user (username, email, password, permissions, adminRights) 
+  			  VALUES('$username', '$email', '$password', 0, 0)";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
@@ -93,8 +93,8 @@ if (isset($_POST['save'])) { // if save button on the form is clicked
   $file = $_FILES['myfile']['tmp_name'];
   $size = $_FILES['myfile']['size'];
 
-  if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
-      echo "You file extension must be .zip, .pdf or .docx";
+  if (!in_array($extension, ['png', 'jpg', 'gif'])) {
+      echo "You file extension must be .png, .jpg or .gif";
   } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
       echo "File too large!";
   } else {
