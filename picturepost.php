@@ -11,7 +11,6 @@ if(isset($_POST['submit']))
 	$pictureDescription = mysqli_real_escape_string($conn, $_POST['pictureDescription']);
 	$pictureTitle = mysqli_real_escape_string($conn, $_POST['pictureTitle']);
 	$pictureDirectory = basename($_FILES['image']['name']);
-	//$pictureDirectory = mysqli_real_escape_string($conn, $_POST['pictureDirectory']);
 
 		$sql = "INSERT INTO picture (userId,albumId,pictureDescription,pictureTitle,pictureDirectory) VALUES ('$userId','$albumId','$pictureDescription','$pictureTitle','$pictureDirectory')";
 		if (mysqli_query($conn, $sql)) {

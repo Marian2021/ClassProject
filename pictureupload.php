@@ -1,21 +1,24 @@
+<?php include 'connection.php';?>
+
+
 <!DOCTYPE html>
-<?php include('connection.php') ?>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Complete Bootstrap 4 Website Layout</title>
+	<title>Group 500 photo website</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="stlyle.css" rel="stylesheet">
-  <title>Album View</title>
-  <link rel="stylesheet" type="text/css" href="album.css">
+	<link href="style.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+	
 </head>
 <body>
-    <!-- Navigation -->
+
+<!-- Navigation -->
 <nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
@@ -50,30 +53,46 @@
     </div>
     </div>
 </nav>
-  <div class="header">
-  	<h2>Album</h2>
-  </div>
-<div class="container page-top">
 
-<div class="row">
-
-<?php
-$album = $_GET['album'];
-$result = mysqli_query($db,"SELECT * FROM albums INNER JOIN picture ON albums.albumId = picture.albumId where albums.albumId = ".$album."");
-
-while($row = mysqli_fetch_assoc($result)){
-	echo ' <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a href="photoview.php?picture='.$row['pictureId'].'" class="fancybox" rel="ligthbox">
-            <img  src="images/'.$row['pictureDirectory'].'" class="zoom img-fluid "  alt="'.$row['pictureDescription'].'" height="200">
-           <p>'.$row['pictureTitle'].'</p>
-        </a>
-    </div>';
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="pic.css">
+    <title>Files Upload and Download</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form action="picturepost.php" method="post" enctype="multipart/form-data" >
+          <h3>Upload Picture</h3>
+		  Title: <input type="text" name="pictureTitle"><br> 
+		  
+		  Description: <textarea name="pictureDescription" rows="5" cols="20"></textarea><br> 
+		  
+		  User Id: <select id="userId" name="userId">
+		   <?php 
+		  $result = mysqli_query($db,"SELECT * from user");
+		  while($row = mysqli_fetch_assoc($result)){
+		echo '<option value = "'.$row['userId'].'"> '.$row['username'].' </option>';
 
        }
-mysqli_close($db);
-?>
-</div>
-</div>
-  
-</body>
+		  ?>
+		  </select><br> 
+		  
+		  Album: <select id="albumId" name="albumId">
+		  <?php 
+		  $result = mysqli_query($db,"SELECT * from albums");
+		  while($row = mysqli_fetch_assoc($result)){
+		echo '<option value = "'.$row['albumId'].'"> '.$row['title'].' </option>';
+
+       }
+		  ?>
+		  </select>
+		  
+		  Picture: <input type="file" name="image" id="image" required/><br> 
+		  
+		  Submit: <input type="submit" name="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
