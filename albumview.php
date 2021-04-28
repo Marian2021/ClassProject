@@ -51,13 +51,7 @@
     </div>
 </nav>
   <div class="header">
-  	<h2>Album</h2>
-  </div>
-<div class="container page-top">
-
-<div class="row">
-
-<?php
+  	<h2><?php
 $album = $_GET['album'];
 $result = mysqli_query($db,"SELECT * FROM albums INNER JOIN picture ON albums.albumId = picture.albumId where albums.albumId = ".$album."");
 
@@ -71,9 +65,8 @@ while($row = mysqli_fetch_assoc($result)){
 
        }
 mysqli_close($db);
-?>
-</div>
-</div>
+?></h2>
+  </div>
   
 </body>
 </html>
