@@ -60,7 +60,7 @@
             <h3> Upload Pictures</h3>
             <div class="row">
                <div class="input-group">
-                  <label for="name">Title</label>
+                  <label for="pictureTitle">Title</label>
                   <input type="text" name="pictureTitle" placeholder="Enter title" required>
                </div>
             </div>
@@ -68,23 +68,29 @@
                <label for="pictureDescription">Description</label>
                <textarea  name="pictureDescription" placeholder="Enter your description" required></textarea>
             </div>
-            <?php 
-               $result = mysqli_query($db,"SELECT * from user");
-               while($row = mysqli_fetch_assoc($result)){
-               echo '<option value = "'.$row['userId'].'"> '.$row['username'].' </option>';
-               
-                  }
-               ?>
-            </select><br> 
-            <?php 
-               $result = mysqli_query($db,"SELECT * from albums");
-               while($row = mysqli_fetch_assoc($result)){
-               echo '<option value = "'.$row['albumId'].'"> '.$row['title'].' </option>';
-                  }
-               ?>
-            </select>
+			<div class="input-group">
+             <label for="pictureTitle">User Id</label>
+            <select id="userId" name="userId">
+		   <?php 
+		  $result = mysqli_query($db,"SELECT * from user");
+		  while($row = mysqli_fetch_assoc($result)){
+		echo '<option value = "'.$row['userId'].'"> '.$row['username'].' </option>';
+
+       }
+		  ?>
+		  </select></div>
+			<div class="input-group">
+            <label for="albumId">Album</label>
+			<select id="albumId" name="albumId">
+		  <?php 
+		  $result = mysqli_query($db,"SELECT * from albums");
+		  while($row = mysqli_fetch_assoc($result)){
+		echo '<option value = "'.$row['albumId'].'"> '.$row['title'].' </option>';
+
+       }
+		  ?>
+		  </select></div>
             <div class="col-md-10">
-               <p>Album</p>
                <input type="file" name="image" id="image" required />
             </div>
             <div class="input-group">
