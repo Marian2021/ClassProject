@@ -10,7 +10,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="stlyle.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<link href="login.css" rel="stylesheet">
+	
   <title>Image View</title>
   <link rel="stylesheet" type="text/css" href="album.css">
 </head>
@@ -18,11 +20,7 @@
     <!-- Navigation -->
 <nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive">
 
-    <span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse"id ="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
