@@ -13,12 +13,16 @@
 	<link href="stlyle.css" rel="stylesheet">
   <title>Album View</title>
   <link rel="stylesheet" type="text/css" href="album.css">
+ 
+  
+  <link rel="stylesheet" type="text/css" href="photo.css">
+  <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
     <!-- Navigation -->
 <nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarResponsive">
 
@@ -51,7 +55,13 @@
     </div>
 </nav>
   <div class="header">
-  	<h2><?php
+  	<h2>Album</h2>
+  </div>
+<div class="container-fluid">
+
+<div class="row">
+
+<?php
 $album = $_GET['album'];
 $result = mysqli_query($db,"SELECT * FROM albums INNER JOIN picture ON albums.albumId = picture.albumId where albums.albumId = ".$album."");
 
@@ -65,8 +75,9 @@ while($row = mysqli_fetch_assoc($result)){
 
        }
 mysqli_close($db);
-?></h2>
-  </div>
+?>
+</div>
+</div>
   
 </body>
 </html>

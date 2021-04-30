@@ -12,6 +12,7 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="style.css" rel="stylesheet">
     <link href="login.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
 	
 </head>
 <body>
@@ -19,7 +20,7 @@
 <!-- Navigation -->
 <nav class ="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/synopsys_color.png" width="200" height="90"></a> 
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarResponsive">
 
@@ -37,11 +38,11 @@
             </li>
             <li class="nav-item">
 			<?php if (isset($_SESSION['username'])) : ?>
-        <p class="nav-link">Welcome <?php echo $_SESSION['username']; ?></p></li>
+        <a class="nav-link">Welcome <?php echo $_SESSION['username']; ?></a></li>
 		<li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
       <?php else : ?>
-                <a class="nav-link" href="login.php">login</a>
+                <a class="nav-link" href="login.php">Login</a>
 				<?php endif ?>
             </li>
             <li class="nav-item">
@@ -52,16 +53,23 @@
     </div>
 </nav>
 
+<!-- works -->
+<div id="works"  class=" clearfix grid"> 
+
+    </figure>
+</div>
+<!-- works -->
+
 <!--- Image Slider  photo -->
 
-<div class="container page-top">
+<div class="container-fluid padding">
 
-<div class="row">
+<div class="row ">
 
 <?php
 $result = mysqli_query($db,"SELECT * FROM albums INNER JOIN picture ON albums.albumId = picture.albumId group by albums.albumId");
 while($row = mysqli_fetch_assoc($result)){
-	echo ' <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+	echo ' <div class="col-lg-3 col-md-4 col-xs-6 thumbnail">
         <a href="albumview.php?album='.$row['albumId'].'" class="fancybox" rel="ligthbox">
             <img  src="images/'.$row['pictureDirectory'].'" class="zoom img-fluid "  alt="'.$row['pictureDescription'].'" height="200">
            <p>'.$row['title'].'</p>
@@ -73,72 +81,80 @@ mysqli_close($db);
 ?>
 </div>
 </div>
-
-<!--- Welcome Section -->
-<div class="container-fluid padding">
-    <div class="row welcome text-center">
-        <div class="col-12">
-            <h2 class="display-4"> Welcome to our site</h2> 
-            <hr>
-               </div>
+<!-- team -->
+<h3 class="text-center  wowload fadeInUp">Our team</h3>
+<p class="text-center  wowload fadeInLeft">Our creative team that is making everything possible</p>
+<div class="row grid team  wowload fadeInUpBig">	
+	<div class=" col-sm-3 col-xs-6">
+	<figure class="effect-chico">
+        <figcaption>
+            <p><b>Noah Brownlee</b><br>Front-End Developer<br><br></p>            
+        </figcaption>
+    </figure>
     </div>
+
+    <div class=" col-sm-3 col-xs-6">
+	<figure class="effect-chico">
+      
+        <figcaption>            
+            <p><b>Ronald Marita</b><br>Front-End Developer<br><br></p>            
+        </figcaption>
+    </figure>
+    </div>
+
+    <div class=" col-sm-3 col-xs-6">
+	<figure class="effect-chico">
+
+        <figcaption>
+            <p><b>Marian Mohamed</b><br>Back-End Developer<br><br></p>          
+        </figcaption>
+    </figure>
+    </div>
+
+    <div class=" col-sm-3 col-xs-6">
+	<figure class="effect-chico">
+      
+        <figcaption>
+            <p><b>Skyler Jensen </b><br>Back-End Developer<br><br></p>
+        </figcaption>
+    </figure>
+    </div>
+
  
 </div>
+<!-- team -->
 
-<!--- Connect -->
-<div class="container-fluid padding">
-    <div class="row text-center padding">
-        <div class="col-12">
-            <h2>Connect with Us</h2>
-        </div>
-        <div class="col-12 social padding">
-            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/?lang=engoo"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.google.com/"><i class="fab fa-google-plus-g"></i></a>
-            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-            
-            
-        </div>
-    </div>
+<!-- Footer Starts -->
+<div class="footer text-center spacer">
+
+Copyright 2021 Group 500. All rights reserved.
 </div>
+<!-- # Footer Ends -->
 
-    <!--- Footer -->
-<footer>
-<div class="container-fluid padding ">
-    <div class="row text-center">
-        <div class="col-md-4">
-            <hr class="light">
-            <p>2222-11-001-15</p>
-            <p>INFO@GMAIL.COM</p>
-        </div>
-        <div class="col-md-4">
-            <hr class="light">
-            <h5>Our Hours</h5>
-            <hr class="light">
-            <p>Monday: 8pm - 6:30pm</p>
-            <p>Friday: 8pm - 5:30pm</p>
-            <p>Saturday: 9:30 pm - 4:30pm</p>
-        </div>
-        <div class="col-md-4">
-            <hr class="light">
-            <h5>Our Services</h5>
-            <hr class="light">
-            <p>City ,State,000</p>
-            <p>City ,State,000</p>
-        </div>
-        <div class="col-12">
-            <hr class="light">
-            <h5>@ Metrostate University</h5>
-        </div>
-    </div>
-</div>
-
-</footer>
 
 </body>
 </html>
 
+
+
+<!-- jquery -->
+<script src="styles/jquery.js"></script>
+
+<!-- wow script -->
+<script src="styles/wow/wow.min.js"></script>
+
+
+<!-- boostrap -->
+<script src="styles/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
+
+<!-- jquery mobile -->
+<script src="styles/mobile/touchSwipe.min.js"></script>
+<script src="assets/respond/respond.js"></script>
+
+
+
+<!-- custom script -->
+<script src="styles/script.js"></script>
 
 
 

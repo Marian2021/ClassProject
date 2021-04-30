@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item">
 			<?php if (isset($_SESSION['username'])) : ?>
-        <p class="nav-link">Welcome <?php echo $_SESSION['username']; ?></p></li>
+        <a class="nav-link">Welcome <?php echo $_SESSION['username']; ?></a></li>
 		<li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
       <?php else : ?>

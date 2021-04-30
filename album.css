@@ -66,3 +66,7 @@
     border: 1px solid #3c763d;
     margin-bottom: 20px;
   }
+  .container-fluid{
+    padding: .5em;
+    display: inline-block;
+  }
